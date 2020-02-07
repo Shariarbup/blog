@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {% if user.username %}
+    <h1>Username : {{ user.username }}</h1>
+    {% endif %}
+    | <a href="{% url 'basic_app-home' %}">Home</a> |
+    | <a href="">About</a> |
+    {% if user.is_authenticated %}
+    | <a href="{% url 'profile' %}">Profile</a> |
+    | <a href="{% url 'post-create' %}">New post</a> |
+    | <a href="{% url 'logout' %}">Logout</a> |
+    {% else %}
+    | <a href="{% url 'login' %}">Login</a> |
+    | <a href="{% url 'register' %}">Sign Up</a> |
+    {% endif %}
+    | <a href="{% url 'admin:index' %}">Admin</a> |
+    {% if messages %}
+    {% for message in messages %}
+        <br>
+        <small>{{ message }}</small>
+        <br>
+    {% endfor %}
+    {% endif %}
+    <br> <br>
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

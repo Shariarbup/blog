@@ -1,0 +1,17 @@
+{% extends 'basic_app/base.html' %}
+{% block content %}
+    <form  method="POST">
+        <fieldset>
+            <legend>Please Write yourpost</legend>
+            <h1>Please fill Out this form</h1>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <input type="submit" value="Post">
+            <br>
+        </fieldset>
+    </form>
+   
+{% endblock %}
+
+

@@ -1,0 +1,17 @@
+{% extends 'basic_app/base.html' %}
+{% block content %}
+    <form  method="POST">
+        <fieldset>
+            <legend>Delete your post.</legend>
+            <h1>Are you sure to delete your post."{{ object.title }}"</h1>
+          
+            <br>
+            <input type="submit" value="Yes, Delete">
+            | <a href="{% url 'post-detail' object.id %}">Cancel</a> |
+            <br>
+        </fieldset>
+    </form>
+   
+{% endblock %}
+
+

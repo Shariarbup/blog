@@ -1,0 +1,18 @@
+{% extends 'basic_app/base.html' %}
+{% block content %}
+
+<br>
+<div style="border: 1px solid green;">
+    <p>
+        <a href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a> <small> {{ object.date_posted | date:"F d, Y" }} </small>  <br>
+        <h1> {{ object.title }} </h1>
+        <p>{{ object.content }}</p>
+        <br>
+        {% if object.author == user %}
+        | <a href="{% url 'post-delete' object.id %}">Delete</a> |
+        | <a href="{% url 'post-update' object.id %}">Update</a> |
+        {% endif %}
+    </p>
+</div>
+<br>
+{% endblock %}

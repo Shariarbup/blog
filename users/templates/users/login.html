@@ -1,0 +1,16 @@
+{% extends 'basic_app/base.html' %}
+{% block content %}
+<form  method="POST">
+    <fieldset>
+        <legend>Log In</legend>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <input type="submit" value="Login">
+        <br>
+        <a href="{% url 'password_reset' %}">Forgot Password?</a>
+    </fieldset>
+    <br>
+    <small>Need an Account? <a href="{% url 'register' %}">Sign Up</a></small>
+</form>
+{% endblock %}
